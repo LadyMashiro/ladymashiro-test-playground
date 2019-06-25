@@ -1,46 +1,45 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class='hello'>
+    <Multiselect
+            title='clinic filter'
+            :options='kliniken'
+            :value='klinikFilter'
+            track-by='label'
+            placeholder='select clinic filter'
+            :close-on-select='true'
+            selectLabel='select'
+            selectedLabel='selected'
+            deselectLabel='deselect'
+            :multiple='false'
+            @input='updateKlinikFilter'
+    ></Multiselect>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import Multiselect from 'vue-multiselect';
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  components: {
+    Multiselect
+  },
+  computed: {
+    ...mapState(['kliniken', 'klinikFilter'])
+  },
+  methods: {
+    updateKlinikFilter(filter) {
+      this.$store.dispatch('setKlinikFilter', filter);
+    }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style src='vue-multiselect/dist/vue-multiselect.min.css'></style>
+<!-- Add 'scoped' attribute to limit CSS to this component only -->
+<style lang='scss' scoped>
+    .hello {
+        margin-top: 30px;
+    }
 h3 {
   margin: 40px 0 0;
 }
@@ -54,5 +53,10 @@ li {
 }
 a {
   color: #42b983;
+}
+.multiselect {
+  width: 749px;
+  margin: 0 auto;
+  padding: 1px 0px 1px 1px;
 }
 </style>
