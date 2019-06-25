@@ -7,14 +7,14 @@
             placeholder='select clinic filter'
             :close-on-select='true'
             selectLabel='select ✔️'
-            selectedLabel='selected'
+            selectedLabel='selected ✔️'
             deselectLabel='deselect ❌'
             :multiple='false'
             @input='setKlinikFilter'
     >
       <!--<template slot="singleLabel" slot-scope="{option, remove}"><span>{{ option }} <button @click.prevent="remove(option)">X</button></span></template>-->
       <template slot="clear" slot-scope="props">
-        <div class="multiselect__clear"  @mousedown.prevent.stop="setKlinikFilter(null)">❌</div>
+        <div class="multiselect__clear"  @mousedown.prevent="setKlinikFilter(null)">❌</div>
       </template>
     </Multiselect>
 
