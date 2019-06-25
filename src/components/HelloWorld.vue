@@ -65,15 +65,15 @@ a {
   margin: 0 auto;
   padding: 1px 0px 1px 1px;
 }
-    .multiselect__clear {
-      position: absolute;
-      right: 18px;
-      top: 10px;
-      height: 40px;
-      width: 40px;
-      display: block;
-      cursor: pointer;
-      z-index: 2;
-    }
+.multiselect__clear {
+  position: absolute;
+  right: 18px;
+  top: 10px;
+  height: 40px;
+  width: 40px;
+  display: block;
+  cursor: pointer;
+  z-index: 2;
+}
 
 </style>
