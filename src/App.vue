@@ -6,7 +6,7 @@
     </div>
     <router-view/>
     <div id="footer">
-      {...💚} <span class="italic">spread the vue love</span>
+      {...💚} <span class="italic">spread the vue love </span> <span class="italic">- by Lady Mashiro</span> 🌸
     </div>
   </div>
 
