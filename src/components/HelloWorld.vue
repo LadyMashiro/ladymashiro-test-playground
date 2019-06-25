@@ -4,15 +4,20 @@
             title='clinic filter'
             :options='kliniken'
             :value='klinikFilter'
-            track-by='label'
             placeholder='select clinic filter'
             :close-on-select='true'
-            selectLabel='select'
+            selectLabel='select ✔️'
             selectedLabel='selected'
-            deselectLabel='deselect'
+            deselectLabel='deselect ❌'
             :multiple='false'
             @input='setKlinikFilter'
-    ></Multiselect>
+    >
+      <!--<template slot="singleLabel" slot-scope="{option, remove}"><span>{{ option }} <button @click.prevent="remove(option)">X</button></span></template>-->
+      <template slot="clear" slot-scope="props">
+        <div class="multiselect__clear"  @mousedown.prevent.stop="setKlinikFilter(null)">❌</div>
+      </template>
+    </Multiselect>
+
   </div>
 </template>
 
@@ -60,4 +65,15 @@ a {
   margin: 0 auto;
   padding: 1px 0px 1px 1px;
 }
+    .multiselect__clear {
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      height: 40px;
+      width: 40px;
+      display: block;
+      cursor: pointer;
+      z-index: 2;
+    }
+
 </style>

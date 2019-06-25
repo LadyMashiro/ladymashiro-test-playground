@@ -5,7 +5,11 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <div id="footer">
+      {...💚} <span class="italic">spread the vue love</span>
+    </div>
   </div>
+
 </template>
 
 <style>
@@ -41,4 +45,13 @@
   color: #42b983;
   border-bottom: 3px solid  #42b983;
 }
+  #footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+  }
+  .italic {
+    font-style: italic;
+  }
 </style>

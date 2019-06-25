@@ -18,8 +18,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    setKlinikFilter ({ commit }, value) {
-      commit('SET_KLINIK_FILTER', value);
+    setKlinikFilter (context, value) {
+      context.commit('SET_KLINIK_FILTER', value);
     }
   },
   mutations: {
