@@ -13,7 +13,7 @@
             @input='setKlinikFilter'
     >
       <!--<template slot="singleLabel" slot-scope="{option, remove}"><span>{{ option }} <button @click.prevent="remove(option)">X</button></span></template>-->
-      <template slot="clear" slot-scope="props">
+      <template slot="clear">
         <div class="multiselect__clear"  @mousedown.prevent="setKlinikFilter('')">❌</div>
       </template>
     </Multiselect>
