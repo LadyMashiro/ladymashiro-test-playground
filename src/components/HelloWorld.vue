@@ -11,14 +11,14 @@
             selectedLabel='selected'
             deselectLabel='deselect'
             :multiple='false'
-            @input='updateKlinikFilter'
+            @input='setKlinikFilter'
     ></Multiselect>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import Multiselect from 'vue-multiselect';
+import { mapState, mapActions } from 'vuex'
+import Multiselect from 'vue-multiselect'
 export default {
   name: 'HelloWorld',
   components: {
@@ -28,9 +28,10 @@ export default {
     ...mapState(['kliniken', 'klinikFilter'])
   },
   methods: {
-    updateKlinikFilter(filter) {
+    ...mapActions(['setKlinikFilter'])
+    /* updateKlinikFilter(filter) {
       this.$store.dispatch('setKlinikFilter', filter);
-    }
+    } */
   }
 }
 </script>
